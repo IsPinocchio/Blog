@@ -1,6 +1,6 @@
 # 从输入URL到页面呈现发生了什么？
 
-![流程图](D:\沸点前端\浏览器\img\流程图.png)
+![流程图](https://user-images.githubusercontent.com/61226624/132233282-57244273-cb2f-4c7f-aa71-ffcfab23cdb8.png)
 
 按下回车后，用户发出URL请求到页面开始解析的这个过程，叫做**导航**。
 
