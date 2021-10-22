@@ -140,5 +140,46 @@ function deepClone(target) {
 }
 ```
 
+### 5. Array.prototype.filter
 
+过滤出满足条件的元素，并返回一个满足条件的新数组
+
+```javascript
+Array.prototype.myfilter = function (cb) {
+  let newArr = [];
+  for (let i = 0; i < this.length; i++) {
+    if (cb(this[i])) {
+      newArr.push(this[i]);
+    }
+  }
+  return newArr
+}
+```
+
+### 6. Array.prototype.map
+
+返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。
+
+```javascript
+Array.prototype.mymap = function (cb) {
+  let newArr = [];
+  for (let i = 0; i < this.length; i++) {
+    newArr.push(cb(this[i]));
+  }
+  return newArr;
+}
+```
+
+### 7. Array.prototype.reduce
+
+接收一个函数作为累加器，数组中的每个值（从左到右）开始迭代，最终计算为一个值。
+
+```javascript
+Array.prototype.myreduce = function (cb, initVal) {
+  for (let i = 0; i < this.length; i++) {
+    initVal = cb(initVal, this[i]);
+  }
+  return initVal;
+}
+```
 

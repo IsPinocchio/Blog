@@ -54,6 +54,24 @@ XSS（Cross Site Scripting）为了区分开CSS，故简称XSS。XSS是指黑客
 
 #### 1.5.2 充分利用CSP
 
+CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。
+
+**CSP的使用**
+
+* 在HTTP header中使用（首选）
+
+  * ```javascript
+    "Content-Security-Policy:" 策略
+    "Content-Security-Policy-Report-Only:" 策略
+    ```
+
+* 在HTML上使用
+
+  * ```javascript
+    <meta http-equiv="content-security-policy" content="策略">
+    <meta http-equiv="content-security-policy-report-only" content="策略">
+    ```
+
 CSP有如下几个功能：
 
 * 限制加载其他域下的资源文件，这样即使黑客插入一个JavaScript文件，这个JavaScript也是无法被加载的
