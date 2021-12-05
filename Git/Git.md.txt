@@ -1,0 +1,62 @@
+# Git
+
+<img src="https://www.ruanyifeng.com/blogimg/asset/2014/bg2014061202.jpg">
+
+## 一.Git的工作区域构成
+
+* **workspace：**工作区，就是平时进行开发改动的地方。
+* **index：**暂存区，当执行 `git add` 的命令后，工作区的文件就会被移入暂存区。
+* **Repository：**本地仓库，位于自己的电脑上，通过`git commit`后暂存区的内容会提交到本地仓库。
+* **Remote：**远程仓库，用来托管代码的服务器。
+
+一般git的工作流程分一下几步：
+
+> 1.在工作区开发，添加，修改文件。
+> 2.将修改后的文件放入暂存区。
+> 3.将暂存区域的文件提交到本地仓库。
+> 4.将本地仓库的修改推送到远程仓库。
+
+## 二. Git的基本操作
+
+一般`git clone`后，所使用的远程主机自动被Git命名为`origin`。
+
+默认情况下，本地分支和远程分支是有追踪关系的（同名分支），这样就可以省略后面很多方法中的参数。
+
+### 2.1 `git add`
+
+将文件添加到暂存区
+
+```shell
+# 添加某个文件到暂存区，后面可以跟多个文件，以空格区分
+git add xxx
+# 添加当前更改的所有文件到暂存区。
+git add .
+```
+
+### 2.2 `git commit`
+
+```shell
+# 提交暂存的更改，并记录下备注
+git commit -m "you message"
+# 等同于 git add . && git commit -m
+git commit -am
+# 对最近一次的提交的信息进行修改,此操作会修改commit的hash值
+git commit --amend
+```
+
+### 2.3 `git push`
+
+```shell
+# 命令用于将本地分支的更新，推送到远程主机
+git push <远程主机名> <本地分支名>:<远程分支名>
+```
+
+### 2.4 `git pull`
+
+```shell
+# 从远程仓库拉取代码并合并到本地，可简写为 git pull 等同于 git fetch && git merge 
+git pull <远程主机名> <远程分支名>:<本地分支名>
+# 使用rebase的模式进行合并
+git pull --rebase <远程主机名> <远程分支名>:<本地分支名>
+```
+
